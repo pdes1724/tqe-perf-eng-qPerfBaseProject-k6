@@ -1,0 +1,32 @@
+pipeline {
+    agent {
+            kubernetes {
+                  yamlFile 'perfPlatform/Jenkins-Slave-Pod.yaml'
+             }
+    }
+
+    environment {
+//   Project On-board TASK 1::
+//          Preferred project name can be given here as JOBNAME, But make sure to use only lower case letters (a-z) and digits (0-9) on your names. Ex brakes1
+//          Restriction comes from Kubernetes side, Kubernetes only allow digits (0-9), lower case letters (a-z), -, and . characters in resource names https://kubernetes.io/docs/concepts/overview/working-with-objects/names/
+            JOBNAME = "qperfbaseprojectmaster"
+
+//   Project On-board TASK 2::
+//          Provide K6 script name you want to run here.
+            scriptName = "single-request.js"
+    }
+
+    stages {
+            stage('Execute Performance Test') {
+                steps {
+                    container('k6-runner'){
+                        script {
+                                 sh 'pwd'
+                                 sh 'k6 run  ./src/test/k6/${scriptName} --out influxdb=http://influx-release-influxdb:8086/k6data'
+                        }
+                    }
+                }
+            }
+   }
+
+}
