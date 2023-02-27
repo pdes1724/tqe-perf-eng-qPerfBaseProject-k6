@@ -26,7 +26,29 @@ pipeline {
                         }
                     }
                 }
-            }
+            },
+
+            stage('Publish Test Results k6summary') {
+                            steps {
+                                container('k6-runner'){
+                                    script {
+                                    sh 'pwd'
+                                    sh 'echo =======================Read sitespeed results==============='
+
+                                             publishHTML target: [
+                                             allowMissing: false,
+                                             alwaysLinkToLastBuild: false,
+                                             keepAll: true,
+                                             reportDir: 'k6summary-report/',
+                                             reportFiles: 'k6summary.html',
+                                             reportName: 'k6summary'
+                                             ]
+                                    sh 'echo =======================Finish reading sitespeed results==============='
+                                    }
+                                }
+                            }
+                        }
+
    }
 
 }
