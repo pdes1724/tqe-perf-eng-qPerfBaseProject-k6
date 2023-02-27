@@ -27,31 +27,31 @@ pipeline {
                     }
                 }
             }
-           }
 
-    stages {
-                stage('Execute Performance k6summary') {
-                    steps {
-                        container('k6-runner'){
-                            script {
-                                     sh 'pwd'
-                                     sh 'echo =======================Read K6 results==============='
 
-                                              publishHTML target: [
-                                              allowMissing: false,
-                                              alwaysLinkToLastBuild: false,
-                                              keepAll: true,
-                                              reportDir: 'k6summary-report/',
-                                              reportFiles: 'k6summary.html',
-                                              reportName: 'k6summary'
-                                              ]
-                                     sh 'echo =======================Finish reading K6 results==============='
-
+            stage('Execute K6 Performance Test') {
+                            steps {
+                                container('k6-runner'){
+                                    script {
+                                            sh 'pwd'
+                                            sh 'echo =======================Read K6 results==============='
+                                            publishHTML target: [
+                                            allowMissing: false,
+                                            alwaysLinkToLastBuild: false,
+                                            keepAll: true,
+                                            reportDir: 'k6summary-report/',
+                                            reportFiles: 'k6summary.html',
+                                            reportName: 'k6summary'
+                                            ]
+                                     'echo =======================Finish reading K6 results==============='
+                                    }
+                                }
                             }
                         }
-                    }
-                }
-               }
+
+
+           }
+
 
 
 
