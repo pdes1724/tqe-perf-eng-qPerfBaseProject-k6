@@ -20,9 +20,9 @@ export const options = {
             startRate: 10,
             stages: [
                 // Level at 10 iters/s for 10 second
-                { target: 10, duration: "100s" },
+                { target: 10, duration: "10s" },
                 // Spike from 10 iters/s to 150 iters/s in 5 seconds!
-                { target: 150, duration: "500s" },
+                { target: 150, duration: "50s" },
                 // Level at 150 iters/s for 10 seconds
                 { target: 150, duration: "10s" },
                 // Slowing down from 150 iters/s to 100 iters/s over 20 seconds
