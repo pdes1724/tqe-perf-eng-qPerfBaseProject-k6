@@ -18,7 +18,7 @@ export const options = {
             executor: 'ramping-arrival-rate',
             startRate: 10,
             stages: [
-                // Level at 10 iters/s for 10 seconds
+                // Level at 10 iters/s for 10 second
                 { target: 10, duration: "100s" },
                 // Spike from 10 iters/s to 150 iters/s in 5 seconds!
                 { target: 150, duration: "500s" },
