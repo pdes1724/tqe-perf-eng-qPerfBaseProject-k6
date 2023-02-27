@@ -27,7 +27,7 @@ pipeline {
                     }
                 }
             }
-           },
+           }
 
     stages {
                 stage('Execute Performance k6summary') {
