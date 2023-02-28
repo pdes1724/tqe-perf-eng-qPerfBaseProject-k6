@@ -35,15 +35,18 @@ pipeline {
                                     script {
                                             sh 'pwd'
                                             sh 'echo =======================Read K6 results==============='
+                                            //sh 'sleep 2m'
                                             publishHTML target: [
                                             allowMissing: false,
                                             alwaysLinkToLastBuild: false,
                                             keepAll: true,
-                                            reportDir: 'Reports/',
+                                            reportDir: '.',
                                             reportFiles: 'k6summary.html',
                                             reportName: 'k6summary'
                                             ]
                                      'echo =======================Finish reading K6 results==============='
+
+                                        sh 'sleep 20m'
                                     }
                                 }
                             }
