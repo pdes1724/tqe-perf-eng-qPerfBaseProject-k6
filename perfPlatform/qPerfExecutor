@@ -39,7 +39,7 @@ pipeline {
                                             allowMissing: false,
                                             alwaysLinkToLastBuild: false,
                                             keepAll: true,
-                                            reportDir: 'k6summary/',
+                                            reportDir: 'Reports/',
                                             reportFiles: 'k6summary.html',
                                             reportName: 'k6summary'
                                             ]
