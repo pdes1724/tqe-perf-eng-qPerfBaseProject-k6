@@ -46,7 +46,7 @@ pipeline {
                                             ]
                                      'echo =======================Finish reading K6 results==============='
 
-                                       //sh 'sleep 5m'
+
                                     }
                                 }
                             }
@@ -62,6 +62,7 @@ pipeline {
                             sh 'for pod in $(kubectl get pod -l app.kubernetes.io/component=jenkins-controller -o custom-columns=:metadata.name); do kubectl cp $pod:/var/jenkins_home/jobs/${JOB_NAME}/builds/${BUILD_NUMBER}/htmlreports/k6summary/k6-report/ /opt/results/jenkins/${JOB_NAME}/${BUILD_NUMBER}/k6-report/;done;'
                             sh 'echo ==============Finished K6 Result Backup Process ========================'
 
+                                sh 'sleep 20m'
                           }
                      }
                 }
