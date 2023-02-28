@@ -29,7 +29,7 @@ pipeline {
             }
 
 
-            stage('Execute K6 Performance Test') {
+            stage('Publish K6 Performance Test Results') {
                             steps {
                                 container('k6-runner'){
                                     script {
@@ -46,11 +46,13 @@ pipeline {
                                             ]
                                      'echo =======================Finish reading K6 results==============='
 
-                                        sh 'sleep 20m'
+                                       // sh 'sleep 20m'
                                     }
                                 }
                             }
                         }
+
+
 
 
            }
