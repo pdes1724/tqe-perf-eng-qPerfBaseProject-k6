@@ -23,13 +23,13 @@ export const options = {
                 // Level at 10 iters/s for 10 second
                 { target: 10, duration: "10s" },
                 // Spike from 10 iters/s to 150 iters/s in 5 seconds!
-                { target: 150, duration: "50s" },
+                { target: 150, duration: "5s" },
                 // Level at 150 iters/s for 10 seconds
-                { target: 150, duration: "10s" },
+                { target: 150, duration: "1s" },
                 // Slowing down from 150 iters/s to 100 iters/s over 20 seconds
-                { target: 100, duration: "20s" },
+                { target: 100, duration: "2s" },
                 // Leveled off at 30 iters/s for remainder
-                { target: 80, duration: "10s" },
+                { target: 80, duration: "1s" },
             ],
             preAllocatedVUs: 10,
             maxVUs: 50,
