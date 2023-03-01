@@ -9,7 +9,7 @@ import { textSummary } from 'https://jslib.k6.io/k6-summary/0.0.1/index.js'
 export function handleSummary(data) {
   return {
     //'/Users/praveend/Documents/GitHub/k6/tqe-perf-eng-qPerfBaseProject-k6/src/test/Reports/k6summary.html': htmlReport(data, { debug: false }),
-    'k6-report/k6summary.html': htmlReport(data, { debug: false }),
+    'src/test/k6-report/k6summary.html': htmlReport(data, { debug: false }),
     stdout: textSummary(data, { indent: ' ', enableColors: true }),
   }
 }
@@ -21,15 +21,15 @@ export const options = {
             startRate: 10,
             stages: [
                 // Level at 10 iters/s for 10 second
-                { target: 10, duration: "10s" },
+                { target: 10, duration: "100s" },
                 // Spike from 10 iters/s to 150 iters/s in 5 seconds!
-                { target: 150, duration: "5s" },
+                { target: 150, duration: "50s" },
                 // Level at 150 iters/s for 10 seconds
-                { target: 150, duration: "1s" },
+                { target: 150, duration: "10s" },
                 // Slowing down from 150 iters/s to 100 iters/s over 20 seconds
-                { target: 100, duration: "2s" },
+                { target: 100, duration: "20s" },
                 // Leveled off at 30 iters/s for remainder
-                { target: 80, duration: "1s" },
+                { target: 80, duration: "10s" },
             ],
             preAllocatedVUs: 10,
             maxVUs: 50,
