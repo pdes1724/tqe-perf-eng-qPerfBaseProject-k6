@@ -33,6 +33,8 @@ spec:
           name: file-server-data
     - name: k6-runner
       image: desilvampd/xk6-output-influxdb-k6:0.0.1
+      command:
+        - cat
       tty: true
       resources:
         requests:
