@@ -1,8 +1,8 @@
 import http from 'k6/http';
 import { sleep } from "k6";
 
-//import { htmlReport } from '/Users/praveend/Documents/GitHub/k6/tqe-perf-eng-qPerfBaseProject-k6/src/test/dist/bundle.js'
-import { htmlReport } from '../dist/bundle.js'
+import { htmlReport } from '../src/test/dist/bundle.js'
+//import { htmlReport } from '../dist/bundle.js'
 import { textSummary } from 'https://jslib.k6.io/k6-summary/0.0.1/index.js'
 
 
