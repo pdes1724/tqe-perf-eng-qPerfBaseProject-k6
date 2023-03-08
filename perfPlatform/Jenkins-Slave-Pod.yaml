@@ -29,6 +29,8 @@ spec:
           name: helm3-config
         - mountPath: /root/.local/share/helm
           name: helm3-data
+        - mountPath: /opt/results
+          name: file-server-data
     - name: k6-runner
       image: gvasanka/k6-runner
       command:
@@ -54,3 +56,6 @@ spec:
     - name: helm3-data
       persistentVolumeClaim:
         claimName: helm3-data-efs-pv-claim
+    - name: file-server-data
+      persistentVolumeClaim:
+        claimName: file-server-efs-pv-claim
