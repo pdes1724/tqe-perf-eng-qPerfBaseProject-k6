@@ -32,7 +32,7 @@ spec:
         - mountPath: /opt/results
           name: file-server-data
     - name: k6-runner
-      image: desilvampd/xk6-output-influxdb-k6:0.0.2
+      image: desilvampd/xk6-output-influxdb-k6-n:0.0.3
       command:
         - cat
       tty: true
