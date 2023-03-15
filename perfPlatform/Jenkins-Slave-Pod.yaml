@@ -32,7 +32,7 @@ spec:
         - mountPath: /opt/results
           name: file-server-data
     - name: k6-runner
-      image: avit9228/k6-updated-runner:0.0.3
+      image: grafana/k6:latest
       command:
         - cat
       tty: true
