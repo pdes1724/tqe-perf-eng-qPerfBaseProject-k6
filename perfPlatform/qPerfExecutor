@@ -21,7 +21,7 @@ pipeline {
                 steps {
                     container('k6-runner'){
                         script {
-                          //  sh 'sleep 20m'
+                          sh 'sleep 2s'
                         }
                     }
                 }
