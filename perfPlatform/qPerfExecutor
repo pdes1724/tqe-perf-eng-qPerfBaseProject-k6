@@ -18,7 +18,9 @@ pipeline {
 
     stages {
             stage('Sleep T'){
+            steps {
                 sh '20m'
+                }
             }
             stage('Execute Performance Test') {
                 steps {
