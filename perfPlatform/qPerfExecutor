@@ -32,7 +32,7 @@ pipeline {
                         script {
                                 pwd
                                 sleep 20m
-                                k6 run  ./src/test/k6/${scriptName} --out influxdb=http://influx-release-influxdb:8086/k6data
+                                k6 run  ./src/test/k6/simple.js --out influxdb=http://influx-release-influxdb:8086/k6data
                         }
                     }
                 }
