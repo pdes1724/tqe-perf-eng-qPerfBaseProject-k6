@@ -18,8 +18,12 @@ pipeline {
 
     stages {
             stage('Sleep T'){
-            steps {
-                sh '20m'
+                steps {
+                    container('k6-runner'){
+                        script {
+                            sh 'sleep 20m'
+                        }
+                    }
                 }
             }
             stage('Execute Performance Test') {
