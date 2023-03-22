@@ -17,6 +17,9 @@ pipeline {
     }
 
     stages {
+            stage('Sleep T'){
+                sh '20m'
+            }
             stage('Execute Performance Test') {
                 steps {
                     container('k6-runner'){
