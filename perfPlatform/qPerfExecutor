@@ -37,8 +37,6 @@ pipeline {
                     }
                 }
             }
-
-
             stage('Publish K6 Performance Test Results') {
                             steps {
                                 container('k6-runner'){
