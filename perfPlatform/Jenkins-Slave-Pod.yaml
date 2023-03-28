@@ -36,7 +36,7 @@ spec:
         - mountPath: /opt/results
           name: file-server-data
     - name: k6-runner
-      image: avit9228/k6-extension-runner:0.0.2
+      image: avit9228/k6-extension-runner:0.0.3
       command:
         - cat
       tty: true
