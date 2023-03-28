@@ -31,7 +31,7 @@ pipeline {
                     container('k6-runner'){
                         script {
                                  sh 'pwd'
-                                 sh 'sleep 1m'
+                                 sh 'sleep 1s'
                                  sh 'k6 run  ./src/test/k6/${scriptName} --out influxdb=http://influx-release-influxdb:8086/k6data'
                         }
                     }

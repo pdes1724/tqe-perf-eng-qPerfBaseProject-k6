@@ -9,6 +9,10 @@ spec:
   serviceAccountName: jenkins-release
   imagePullSecrets:
     - name: dockerregcred
+  securityContext:
+    runAsUser: 1000
+    runAsGroup: 1000
+    fsGroup: 1000
   containers:
     - name: kubehelm
       image: dtzar/helm-kubectl:3.4.2
@@ -32,7 +36,7 @@ spec:
         - mountPath: /opt/results
           name: file-server-data
     - name: k6-runner
-      image: grafana/k6
+      image: avit9228/k6-busy-runner:0.0.3
       command:
         - cat
       tty: true
