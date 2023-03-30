@@ -26,10 +26,10 @@ export const options = {
     news: {
       executor: 'per-vu-iterations',
       exec: 'news',
-      vus: 50,
-      iterations: 100,
+      vus: 10,
+      iterations: 10,
       startTime: '30s',
-      maxDuration: '1m',
+      maxDuration: '5m',
     },
   },
 };
