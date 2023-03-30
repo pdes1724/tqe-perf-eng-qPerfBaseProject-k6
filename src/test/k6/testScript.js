@@ -27,9 +27,9 @@ export const options = {
       executor: 'per-vu-iterations',
       exec: 'news',
       vus: 10,
-      iterations: 10,
-      startTime: '30s',
-      maxDuration: '5m',
+      iterations: 100,
+      //startTime: '30s',
+      duration: '5m',
     },
   },
 };
