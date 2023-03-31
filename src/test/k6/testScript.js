@@ -5,14 +5,7 @@ import { sleep } from "k6";
 //import { htmlReport } from '../src/test/dist/bundle.js'
 import { htmlReport } from '../dist/bundle.js'
 import { textSummary } from 'https://jslib.k6.io/k6-summary/0.0.1/index.js'
-
-export function handleSummary(data) {
-  return {
-    //'/Users/praveend/Documents/GitHub/k6/tqe-perf-eng-qPerfBaseProject-k6/src/test/Reports/k6summary.html': htmlReport(data, { debug: false }),
-    'k6-report/k6summary.html': htmlReport(data, { debug: false }),
-    stdout: textSummary(data, { indent: ' ', enableColors: true }),
-  }
-}
+import { Trend } from 'k6/metrics';
 
 export const options = {
   discardResponseBodies: true,
@@ -40,12 +33,25 @@ export const options = {
   },
 };
 
+let requestTrend1 = new Trend('Request1')
+let requestTrend2 = new Trend('Request2')
+
 export function contacts() {
   http.get('https://test.k6.io/contacts.php', {
     tags: { my_custom_tag: 'contacts' },
   });
+  requestTrend1.add(resp.timings.duration)
 }
 
 export function news() {
   http.get('https://test.k6.io/news.php', { tags: { my_custom_tag: 'news' } });
+  requestTrend2.add(resp.timings.duration)
+}
+
+export function handleSummary(data) {
+  return {
+    //'/Users/praveend/Documents/GitHub/k6/tqe-perf-eng-qPerfBaseProject-k6/src/test/Reports/k6summary.html': htmlReport(data, { debug: false }),
+    'k6-report/k6summary.html': htmlReport(data, { debug: false }),
+    stdout: textSummary(data, { indent: ' ', enableColors: true }),
+  }
 }
