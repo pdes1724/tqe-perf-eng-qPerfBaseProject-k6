@@ -25,7 +25,7 @@ export const options = {
       //vus: 10,
       //iterations: 100,
       //startTime: '30s',
-      duration: '5m',
+      duration: '30s',
       rate: 2,
       preAllocatedVUs: 2,
       timeUnit: "1s",
@@ -35,7 +35,7 @@ export const options = {
       http_req_duration: ['p(95)<1000'],
       iteration_duration: ['max<7000'],
   },
-  summaryTrendStats: ['avg','count'],
+  summaryTrendStats: ["min", "max", "avg","median", "p(90)", "p(95)", "rate", "count"],
 };
 
 let requestTrend1 = new Trend('Request1')
