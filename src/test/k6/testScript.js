@@ -26,10 +26,13 @@ export const options = {
     news: {
       executor: 'constant-vus',
       exec: 'news',
-      vus: 10,
-      iterations: 100,
+      //vus: 10,
+      //iterations: 100,
       //startTime: '30s',
       duration: '5m',
+      rate: 2,
+      preAllocatedVUs: 2,
+      timeUnit: "1s",
     },
   },
 };
