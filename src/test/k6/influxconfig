@@ -1,4 +1,4 @@
-K6_INFLUXDB_ORGANIZATION=sysco
+K6_INFLUXDB_ORGANIZATION=qperf
 K6_INFLUXDB_BUCKET=qa
 K6_INFLUXDB_TOKEN=mycXs5gMOMqJ39i8tOCSvH7zxMTthVp2KqycRmlzQp1o8xz7CN__YooMMjNvtFUGeeWa4L1MFP66hU4sNZenOQ==
 K6_OUT=xk6-influxdb=influxdb-2-test-release-influxdb2.qa.svc.cluster.local:80
