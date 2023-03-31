@@ -1,4 +1,4 @@
-K6_INFLUXDB_ORGANIZATION=Sysco
-K6_INFLUXDB_BUCKET=QA
-K6_INFLUXDB_TOKEN=gfgNgDPdl9SPGtYP-Vb1osByk-yH32yHgIQZjqXVPlO6bwWhwE4bYtPVP2xPA2ekKnjVSxQc45VRlnDXOn7sbg==
-K6_OUT=xk6-influxdb=influxdb-2-test-release-influxdb2:80
+K6_INFLUXDB_ORGANIZATION=sysco
+K6_INFLUXDB_BUCKET=qa
+K6_INFLUXDB_TOKEN=mycXs5gMOMqJ39i8tOCSvH7zxMTthVp2KqycRmlzQp1o8xz7CN__YooMMjNvtFUGeeWa4L1MFP66hU4sNZenOQ==
+K6_OUT=xk6-influxdb=influxdb-2-test-release-influxdb2.qa.svc.cluster.local:80
