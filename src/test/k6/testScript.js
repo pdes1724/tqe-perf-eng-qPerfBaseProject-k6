@@ -17,12 +17,15 @@ export function handleSummary(data) {
 export const options = {
   discardResponseBodies: true,
   scenarios: {
-   /* contacts: {
-      executor: 'constant-vus',
+    contacts: {
+      executor: 'constant-arrival-rate',
       exec: 'contacts',
-      vus: 50,
+      //vus: 50,
       duration: '30s',
-    },*/
+      rate: 1,
+      preAllocatedVUs: 1,
+      timeUnit: "1s",
+    },
     news: {
       executor: 'constant-arrival-rate',
       exec: 'news',
