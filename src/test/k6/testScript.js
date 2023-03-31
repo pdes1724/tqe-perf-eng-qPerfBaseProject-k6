@@ -24,7 +24,7 @@ export const options = {
       duration: '30s',
     },*/
     news: {
-      executor: 'constant-vus',
+      executor: 'constant-arrival-rate',
       exec: 'news',
       //vus: 10,
       //iterations: 100,
