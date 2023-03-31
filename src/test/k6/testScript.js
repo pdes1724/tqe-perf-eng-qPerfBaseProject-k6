@@ -35,7 +35,7 @@ export const options = {
       http_req_duration: ['p(95)<1000'],
       iteration_duration: ['max<7000'],
   },
-  summaryTrendStats: ["min", "max", "avg","median", "p(90)", "p(95)", "rate", "count"],
+  summaryTrendStats: ["min", "max", "avg","med", "p(90)", "p(95)", "rate", "count"],
 };
 
 let requestTrend1 = new Trend('Request1')
