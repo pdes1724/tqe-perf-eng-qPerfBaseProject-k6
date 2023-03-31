@@ -37,14 +37,14 @@ let requestTrend1 = new Trend('Request1')
 let requestTrend2 = new Trend('Request2')
 
 export function contacts() {
-  http.get('https://test.k6.io/contacts.php', {
+  resp=http.get('https://test.k6.io/contacts.php', {
     tags: { my_custom_tag: 'contacts' },
   });
   requestTrend1.add(resp.timings.duration)
 }
 
 export function news() {
-  http.get('https://test.k6.io/news.php', { tags: { my_custom_tag: 'news' } });
+  resp=http.get('https://test.k6.io/news.php', { tags: { my_custom_tag: 'news' } });
   requestTrend2.add(resp.timings.duration)
 }
 
