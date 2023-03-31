@@ -31,6 +31,10 @@ export const options = {
       timeUnit: "1s",
     },
   },
+  thresholds: {
+      http_req_duration: ['p(95)<1000'],
+      iteration_duration: ['max<7000'],
+  },
 };
 
 let requestTrend1 = new Trend('Request1')
