@@ -13,9 +13,9 @@ export const options = {
     contacts: {
       executor: 'constant-arrival-rate',
       exec: 'contacts',
-      duration: '30s',
-      rate: 1,
-      preAllocatedVUs: 1,
+      duration: '5m',
+      rate: 100,
+      preAllocatedVUs: 50,
       timeUnit: "1s",
     },
     news: {
@@ -24,9 +24,9 @@ export const options = {
       //vus: 10,
       //iterations: 100,
       //startTime: '30s',
-      duration: '30s',
-      rate: 2,
-      preAllocatedVUs: 2,
+      duration: '5m',
+      rate: 100,
+      preAllocatedVUs: 50,
       timeUnit: "1s",
     },
   },
@@ -37,21 +37,21 @@ export const options = {
   summaryTrendStats: ["min", "max", "avg","med", "p(90)", "p(95)", "count"],
 };
 
-//let requestTrend1 = new Trend('Request1')
-//let requestTrend2 = new Trend('Request2')
+let requestTrend1 = new Trend('Request1')
+let requestTrend2 = new Trend('Request2')
 
 export function contacts() {
   let resp;
   resp=http.get('https://test.k6.io/contacts.php', {
     tags: { my_custom_tag: 'contacts' },
   });
-  //requestTrend1.add(resp.timings.duration)
+  requestTrend1.add(resp.timings.duration)
 }
 
 export function news() {
   let resp;
   resp=http.get('https://test.k6.io/news.php', { tags: { my_custom_tag: 'news' } });
-  //requestTrend2.add(resp.timings.duration)
+  requestTrend2.add(resp.timings.duration)
 }
 
 export function handleSummary(data) {
