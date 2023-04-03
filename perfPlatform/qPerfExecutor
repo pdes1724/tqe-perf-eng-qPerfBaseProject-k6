@@ -13,7 +13,7 @@ pipeline {
 
 //   Project On-board TASK 2::
 //          Provide K6 script name you want to run here.
-            scriptName = "door-buster-sale.js"
+            scriptName = "testScript.js"
     }
 
     stages {
@@ -32,7 +32,7 @@ pipeline {
                         script {
                                  sh 'pwd'
                                  sh 'sleep 1s'
-                                 sh 'k6 run  ./src/test/k6/${scriptName}'
+                                 sh 'k6 run  ./src/test/k6/${scriptName} --out influxdb=http://influx-release-influxdb:8086/k6data'
                         }
                     }
                 }
