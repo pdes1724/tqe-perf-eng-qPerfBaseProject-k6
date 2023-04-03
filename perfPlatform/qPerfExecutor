@@ -13,7 +13,7 @@ pipeline {
 
 //   Project On-board TASK 2::
 //          Provide K6 script name you want to run here.
-            scriptName = "testScript.js"
+            scriptName = "door-buster-sale.js"
     }
 
     stages {
