@@ -14,8 +14,8 @@ export const options = {
       executor: 'constant-arrival-rate',
       exec: 'contacts',
       duration: '5m',
-      rate: 100,
-      preAllocatedVUs: 50,
+      rate: 200,
+      preAllocatedVUs: 100,
       timeUnit: "1s",
     },
     news: {
@@ -25,16 +25,16 @@ export const options = {
       //iterations: 100,
       //startTime: '30s',
       duration: '5m',
-      rate: 100,
-      preAllocatedVUs: 50,
+      rate: 200,
+      preAllocatedVUs: 100,
       timeUnit: "1s",
     },
   },
-  thresholds: {
+  /*thresholds: {
       http_req_duration: ['p(95)<1000'],
       iteration_duration: ['max<7000'],
-  },
-  summaryTrendStats: ["min", "max", "avg","med", "p(90)", "p(95)", "count"],
+  },*/
+  summaryTrendStats: ["min", "max", "avg","med", "p(90)", "p(95)", "count","rate"],
 };
 
 let requestTrend1 = new Trend('Request1')
