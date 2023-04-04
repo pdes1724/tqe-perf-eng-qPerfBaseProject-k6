@@ -32,7 +32,7 @@ pipeline {
                         script {
                                  sh 'pwd'
                                  sh 'sleep 1s'
-                                 sh 'k6 run  ./src/test/k6/${scriptName} --out influxdb=http://influx-release-influxdb:8086/k6data'
+                                 sh 'K6_INFLUXDB_ORGANIZATION=qperf K6_INFLUXDB_BUCKET=qa K6_INFLUXDB_TOKEN=mycXs5gMOMqJ39i8tOCSvH7zxMTthVp2KqycRmlzQp1o8xz7CN__YooMMjNvtFUGeeWa4L1MFP66hU4sNZenOQ== k6 run  ./src/test/k6/${scriptName} --out influxdb=https://perfplatform.cloud.sysco.net/influxdb2'
                         }
                     }
                 }
