@@ -13,9 +13,9 @@ export const options = {
     contacts: {
       executor: 'constant-arrival-rate',
       exec: 'contacts',
-      duration: '30m',
-      rate: 200,
-      preAllocatedVUs: 250,
+      duration: '60m',
+      rate: 150,
+      preAllocatedVUs: 200,
       timeUnit: "1s",
     },
     news: {
@@ -24,9 +24,9 @@ export const options = {
       //vus: 10,
       //iterations: 100,
       //startTime: '30s',
-      duration: '30m',
-      rate: 200,
-      preAllocatedVUs: 250,
+      duration: '60m',
+      rate: 150,
+      preAllocatedVUs: 200,
       timeUnit: "1s",
     },
   },
@@ -44,13 +44,17 @@ export function contacts() {
   let resp;
   resp=http.get('https://test.k6.io/contacts.php', {
     tags: { my_custom_tag: 'contacts' },
+    tags: { test_name: 'Test1' },
   });
   requestTrend1.add(resp.timings.duration)
 }
 
 export function news() {
   let resp;
-  resp=http.get('https://test.k6.io/news.php', { tags: { my_custom_tag: 'news' } });
+  resp=http.get('https://test.k6.io/news.php', {
+    tags: { my_custom_tag: 'news' } ,
+    tags: { test_name: 'Test1' },
+  });
   requestTrend2.add(resp.timings.duration)
 }
 
