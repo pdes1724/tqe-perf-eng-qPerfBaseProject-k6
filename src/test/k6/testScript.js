@@ -3,7 +3,7 @@ import http from 'k6/http';
 import { sleep } from "k6";
 
 //import { htmlReport } from '../src/test/dist/bundle.js'
-import { htmlReport } from '../dist/bundle.js'
+import { htmlReport } from '../lib/bundle.js'
 import { textSummary } from 'https://jslib.k6.io/k6-summary/0.0.1/index.js'
 import { Trend } from 'k6/metrics';
 
@@ -21,19 +21,12 @@ export const options = {
     news: {
       executor: 'constant-arrival-rate',
       exec: 'news',
-      //vus: 10,
-      //iterations: 100,
-      //startTime: '30s',
       duration: '60m',
       rate: 200,
       preAllocatedVUs: 200,
       timeUnit: "1s",
     },
   },
-  /*thresholds: {
-      http_req_duration: ['p(95)<1000'],
-      iteration_duration: ['max<7000'],
-  },*/
   summaryTrendStats: ["min", "max", "avg","med", "p(90)", "p(95)", "count"],
 };
 
@@ -44,7 +37,7 @@ export function contacts() {
   let resp;
   resp=http.get('https://test.k6.io/contacts.php', {
     tags: { my_custom_tag: 'contacts' },
-    tags: { test_name: 'Test1' },
+    tags: { test_name: 'Test2' },
   });
   requestTrend1.add(resp.timings.duration)
 }
@@ -53,7 +46,7 @@ export function news() {
   let resp;
   resp=http.get('https://test.k6.io/news.php', {
     tags: { my_custom_tag: 'news' } ,
-    tags: { test_name: 'Test1' },
+    tags: { test_name: 'Test2' },
   });
   requestTrend2.add(resp.timings.duration)
 }
