@@ -27,6 +27,9 @@ export const options = {
       timeUnit: "1s",
     },
   },
+  tags: {
+      test_name: 'Test3'
+  },
   summaryTrendStats: ["min", "max", "avg","med", "p(90)", "p(95)", "count"],
 };
 
@@ -37,7 +40,6 @@ export function contacts() {
   let resp;
   resp=http.get('https://test.k6.io/contacts.php', {
     tags: { my_custom_tag: 'contacts' },
-    tags: { test_name: 'Test2' },
   });
   requestTrend1.add(resp.timings.duration)
 }
@@ -46,7 +48,6 @@ export function news() {
   let resp;
   resp=http.get('https://test.k6.io/news.php', {
     tags: { my_custom_tag: 'news' } ,
-    tags: { test_name: 'Test2' },
   });
   requestTrend2.add(resp.timings.duration)
 }
